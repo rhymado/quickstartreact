@@ -13,7 +13,7 @@ class Nav extends Component {
         }}
       >
         <ul>
-          <li><Link to={'/about'}>About</Link></li>
+          <li><Link to={'/weapon'}>Weapon</Link></li>
           <li><Link to={'/profile'}>Profile</Link></li>
         </ul>
       </div>
