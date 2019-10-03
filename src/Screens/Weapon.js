@@ -1,21 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 
 import {getWeapon} from '../Publics/redux/actions/weapon';
 
-class Weapon extends Component {
-  state = {
-    weapons: [],
-  };
-  componentDidMount = async () => {
-    await this.props.dispatch(getWeapon());
-    this.setState({
-      weapons: this.props.weapon,
-    });
-  };
+function Weapon () {
+  const [weapon, setWeapon] = useState([])
+
+  useEffect(() => {
+    const result = this.props.dispatch(getWeapon())
+    setWeapon(result)
+  }, [])
+
   render() {
-    const {weapons} = this.state;
-    const list = weapons.weaponList;
+    const list = weapon.weaponList;
     console.log(list);
     return (
       <div>
